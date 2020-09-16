@@ -7,7 +7,7 @@
 | nickname              | string | null: false |
 | email                 | string | null: false |
 | password              | string | null: false |
-| password_confirmation | string | null: false |
+| password-confirmation | string | null: false |
 | family-name           | string | null: false |
 | first-name            | string | null: false |
 | family-name-kana      | string | null: false |
