@@ -40,14 +40,14 @@
 
 | Column                  | Type    | Options                       |
 | ------------------------| ------  | ----------------------------- |
-| product-name            | string  | null: false                   |
+| name                    | string  | null: false                   |
 | category                | string  | null: false                   |
 | price                   | string  | null: false                   |
 | seller                  | string  | null: false                   |
-| product-condition       | string  | null: false                   |
-| shipping-fee-burden     | string  | null: false                   |
-| shipping-area           | string  | null: false                   |
-| estimated-shipping-date | string  | null: false                   |
+| product-condition       | integer | null: false                   |
+| shipping-fee-burden     | integer | null: false                   |
+| shipping-area           | inteegr | null: false                   |
+| estimated-shipping-date | integer | null: false                   |
 | user_id                 | integer | null: false, foreign_key: true|
 
 ### Association
@@ -58,16 +58,9 @@
 
 | Column              | Type     | Options                       |
 | ------------------- | -------- | ------------------------------|
-| card-information    | string   | null: false                   |
-| expiration-data     | string   | null: false                   |
-| security-code       | string   | null: false                   |
-| postcode            | string   | null: false                   |
-| prefectures         | integer  | null: false                   |
-| cities              | string   | null: false                   |
-| address             | string   | null: false                   |
-| building-name       | string   | null: false                   |
-| phone-number        | string   |                               |
+| user_id             | integer  | null: false, foreign_key: true|
 | buyer_id            | integer  | null: false, foreign_key: true|
+
 
 
 ### Association
