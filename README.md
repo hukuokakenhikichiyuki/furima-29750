@@ -33,7 +33,7 @@
 
 ### Association
 
-- has_one :shopping-address
+- has_one :purchase-detail
 - belongs_to :user
 
 ## items テーブル
@@ -46,13 +46,14 @@
 | seller                  | string  | null: false                   |
 | product-condition       | integer | null: false                   |
 | shipping-fee-burden     | integer | null: false                   |
-| shipping-area           | inteegr | null: false                   |
+| shipping-area           | integer | null: false                   |
 | estimated-shipping-date | integer | null: false                   |
 | user_id                 | integer | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
+- has_one :purchase-detail
 
 ## purchase-details テーブル
 
@@ -66,3 +67,4 @@
 ### Association
 
 - belongs_to :buyer
+- belongs_to :item
