@@ -17,23 +17,23 @@
 ### Association
 
 - has_many :items
-- has_many :purchase-details
+- has_many :purchase_details
 
 ## buyers テーブル
 
-| Column             | Type     | Options                        |
-| -------------      | -------  | ------------------------------ |
-| postcode           | string   | null: false                    |
-| prefectures        | integer  | null: false                    |
-| cities             | string   | null: false                    |
-| address            | string   | null: false                    |
-| building-name      | string   |                                |
-| phone-number       | string   | null: false                    |
-| purchase-details   | integer  | null: false, foreign_key: true |
+| Column              | Type     | Options                        |
+| --------------------| -------  | ------------------------------ |
+| postcode            | string   | null: false                    |
+| prefectures         | integer  | null: false                    |
+| cities              | string   | null: false                    |
+| address             | string   | null: false                    |
+| building-name       | string   |                                |
+| phone-number        | string   | null: false                    |
+| purchase-details_id | integer  | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase-detail
+- belongs_to :purchase_detail
 
 ## items テーブル
 
@@ -54,7 +54,7 @@
 - belongs_to :user
 - has_one :purchase-detail
 
-## purchase-details テーブル
+## purchase_details テーブル
 
 | Column              | Type     | Options                       |
 | ------------------- | -------- | ------------------------------|
@@ -64,5 +64,5 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :buyer
+- has_one :buyer
 - belongs_to :item
