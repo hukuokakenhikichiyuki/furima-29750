@@ -17,7 +17,6 @@
 ### Association
 
 - has_many :items
-- has_one :buyer
 - has_many :purchase-details
 
 ## buyers テーブル
@@ -30,12 +29,11 @@
 | address            | string   | null: false                    |
 | building-name      | string   |                                |
 | phone-number       | string   | null: false                    |
-| user_id            | integer  | null: false, foreign_key: true |
+| purchase-details   | integer  | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :purchase-detail
-- belong_to :user
+- belongs_to :purchase-detail
 
 ## items テーブル
 
@@ -49,7 +47,7 @@
 | shipping-fee-burden     | integer  | null: false                   |
 | shipping-area           | integer  | null: false                   |
 | estimated-shipping-date | integer  | null: false                   |
-| purchase-detail_id      | integer  | null: false, foreign_key: true|
+| user_id                 | integer  | null: false, foreign_key: true|
 
 ### Association
 
@@ -67,4 +65,4 @@
 
 - belongs_to :user
 - belongs_to :buyer
-- has_one :item
+- belongs_to :item
