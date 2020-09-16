@@ -21,15 +21,15 @@
 
 ## buyers テーブル
 
-| Column             | Type    | Options                        |
-| -------------      | ------- | ------------------------------ |
-| postcode           | string  | null: false                    |
-| prefectures        | string  | null: false                    |
-| cities             | string  | null: false                    |
-| address            | string  | null: false                    |
-| building-name      | string  | null: false                    |
-| phone-number       | string  | null: false                    |
-| user-id            | integer | null: false, foreign_key: true |
+| Column             | Type     | Options                        |
+| -------------      | -------  | ------------------------------ |
+| postcode           | string   | null: false                    |
+| prefectures        | integer  | null: false                    |
+| cities             | string   | null: false                    |
+| address            | string   | null: false                    |
+| building-name      | string   | null: false                    |
+| phone-number       | string   |                                |
+| user_id            | integer  | null: false, foreign_key: true |
 
 ### Association
 
@@ -38,37 +38,37 @@
 
 ## items テーブル
 
-| Column             | Type    | Options                       |
-| ------------------ | ------  | ----------------------------- |
-| product-name       | string  | null: false                   |
-| category           | string  | null: false                   |
-| price              | string  | null: false                   |
-| seller             | string  | null: false                   |
-| user-id            | integer | null: false, foreign_key: true|
+| Column                  | Type    | Options                       |
+| ------------------------| ------  | ----------------------------- |
+| product-name            | string  | null: false                   |
+| category                | string  | null: false                   |
+| price                   | string  | null: false                   |
+| seller                  | string  | null: false                   |
+| product-condition       | string  | null: false                   |
+| shipping-fee-burden     | string  | null: false                   |
+| shipping-area           | string  | null: false                   |
+| estimated-shipping-date | string  | null: false                   |
+| user_id                 | integer | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- has_many :items
 
-## images テーブル
+## purchase-details テーブル
 
-| Column             | Type     | Options                       |
-| -------------------| ---------| ----------------------------- |
-| image              | string   | null: false                   |
-| item               | string   | null: false                   |
-| item-id            | integer  | null: false, foreign_key: true|
+| Column              | Type     | Options                       |
+| ------------------- | -------- | ------------------------------|
+| card-information    | string   | null: false                   |
+| expiration-data     | string   | null: false                   |
+| security-code       | string   | null: false                   |
+| postcode            | string   | null: false                   |
+| prefectures         | integer  | null: false                   |
+| cities              | string   | null: false                   |
+| address             | string   | null: false                   |
+| building-name       | string   | null: false                   |
+| phone-number        | string   |                               |
+| buyer_id            | integer  | null: false, foreign_key: true|
 
-### Association
-
-- belongs_to :item
-
-## shopping-address  テーブル
-
-| Column              | Type       | Options                       |
-| ------------------- | ---------- | ------------------------------|
-| shopping-address    | string     | null: false                   |
-| buyer-id            | integer    | null: false, foreign_key: true|
 
 ### Association
 
