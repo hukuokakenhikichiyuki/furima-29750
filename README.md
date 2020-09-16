@@ -18,6 +18,7 @@
 
 - has_many :items
 - has_one :buyer
+- has_many :purchase-details
 
 ## buyers テーブル
 
@@ -27,28 +28,28 @@
 | prefectures        | integer  | null: false                    |
 | cities             | string   | null: false                    |
 | address            | string   | null: false                    |
-| building-name      | string   | null: false                    |
-| phone-number       | string   |                                |
+| building-name      | string   |                                |
+| phone-number       | string   | null: false                    |
 | user_id            | integer  | null: false, foreign_key: true |
 
 ### Association
 
 - has_one :purchase-detail
-- belongs_to :user
+- belong_to :user
 
 ## items テーブル
 
-| Column                  | Type    | Options                       |
-| ------------------------| ------  | ----------------------------- |
-| name                    | string  | null: false                   |
-| category                | string  | null: false                   |
-| price                   | string  | null: false                   |
-| seller                  | string  | null: false                   |
-| product-condition       | integer | null: false                   |
-| shipping-fee-burden     | integer | null: false                   |
-| shipping-area           | integer | null: false                   |
-| estimated-shipping-date | integer | null: false                   |
-| user_id                 | integer | null: false, foreign_key: true|
+| Column                  | Type     | Options                       |
+| ------------------------| ------   | ----------------------------- |
+| name                    | string   | null: false                   |
+| category                | integer  | null: false                   |
+| price                   | integer  | null: false                   |
+| description             | text     | null: false                   |
+| product-condition       | integer  | null: false                   |
+| shipping-fee-burden     | integer  | null: false                   |
+| shipping-area           | integer  | null: false                   |
+| estimated-shipping-date | integer  | null: false                   |
+| purchase-detail_id      | integer  | null: false, foreign_key: true|
 
 ### Association
 
@@ -59,12 +60,11 @@
 
 | Column              | Type     | Options                       |
 | ------------------- | -------- | ------------------------------|
+| item_id             | integer  | null: false, foreign_key: true|
 | user_id             | integer  | null: false, foreign_key: true|
-| buyer_id            | integer  | null: false, foreign_key: true|
-
-
 
 ### Association
 
+- belongs_to :user
 - belongs_to :buyer
-- belongs_to :item
+- has_one :item
