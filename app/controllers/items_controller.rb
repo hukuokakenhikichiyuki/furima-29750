@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  def index
-    @items = Item.all.order('created_at DESC')
-  end
+  # def index
+  #   @items = Item.all.order('created_at DESC')
+  # end
 
   def new
     redirect_to user_session_path unless user_signed_in?
