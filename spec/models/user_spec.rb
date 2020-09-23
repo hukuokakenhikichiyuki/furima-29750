@@ -47,13 +47,13 @@ describe User do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it 'passwordは数字のみでは登録できない' do
         @user.password = '000000'
         @user.password_confirmation = '000000'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it '重複したemailが存在する場合は登録できない' do
         @user.save
@@ -88,25 +88,25 @@ describe User do
       end
       describe '全角文字' do
         it 'family_nameが全角ではないなら登録できない' do
-          @user.family_name = "aaa"
+          @user.family_name = 'aaa'
           @user.valid?
-          expect(@user.errors.full_messages).to include("Family name 全角文字を使用してください")
+          expect(@user.errors.full_messages).to include('Family name 全角文字を使用してください')
         end
         it 'first_nameは全角ではないなら登録できない' do
-          @user.first_name = "family"
+          @user.first_name = 'family'
           @user.valid?
           binding.pry
-          expect(@user.errors.full_messages).to include("First name 全角文字を使用してください")
+          expect(@user.errors.full_messages).to include('First name 全角文字を使用してください')
         end
         it 'family_name_kanaは全角カナではないなら登録できない' do
-          @user.family_name_kana = "あああああ"
+          @user.family_name_kana = 'あああああ'
           @user.valid?
-          expect(@user.errors[:family_name_kana]).to include("カナ（全角文字）を使用してください")
+          expect(@user.errors[:family_name_kana]).to include('カナ（全角文字）を使用してください')
         end
         it 'first_name_kanaは全角カナではないなら登録できない' do
-          @user.first_name_kana = "あああああ"
+          @user.first_name_kana = 'あああああ'
           @user.valid?
-          expect(@user.errors[:first_name_kana]).to include("カナ（全角文字）を使用してください")
+          expect(@user.errors[:first_name_kana]).to include('カナ（全角文字）を使用してください')
         end
       end
     end
