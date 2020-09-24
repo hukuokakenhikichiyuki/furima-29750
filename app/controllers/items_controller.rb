@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  # def index
-  #   @items = Item.all.order('created_at DESC')
-  # end
+  def index
+    @items = Item.all.order('created_at DESC')
+  end
 
   def new
     redirect_to user_session_path unless user_signed_in?
@@ -23,3 +23,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :price, :description, :category_id, :product_condition_id, :shipping_fee_burden_id, :shipping_area_id, :estimated_shipping_date_id).merge(user_id: current_user.id)
   end
 end
+
+# @items = [1, 2, 3]
+# @items = []
+# 配列の要素の数が0だったらダミーを表示させる。
