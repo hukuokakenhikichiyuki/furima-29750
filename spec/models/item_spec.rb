@@ -29,27 +29,27 @@ describe User do
       it 'カテゴリーの情報のidが１だと登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it '商品の状態の情報のidが１だと登録できない' do
         @item.product_condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Product condition must be other than 1')
       end
       it '配送料の負担の情報のidが１だと登録できない' do
         @item.shipping_fee_burden_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping fee burden must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping fee burden must be other than 1')
       end
       it '発送元の地域の情報がのidが１だと登録できない' do
         @item.shipping_area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
       end
       it '発送までの日数の情報がのidが１だと登録できない' do
         @item.estimated_shipping_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Estimated shipping date must be other than 1")
+        expect(@item.errors.full_messages).to include('Estimated shipping date must be other than 1')
       end
       it '価格についての情報が空だと登録できない' do
         @item.price = nil
@@ -59,17 +59,17 @@ describe User do
       it '販売価格は、半角数字でなければ登録できない' do
         @item.price = '５００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は半角数字で入力してください。")
+        expect(@item.errors.full_messages).to include('Price は半角数字で入力してください。')
       end
       it '価格の範囲が、¥300以下だと登録できない' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥300以上で入力してください。")
+        expect(@item.errors.full_messages).to include('Price は¥300以上で入力してください。')
       end
       it '価格の範囲が、¥9,999,999以上だと登録できない' do
-        @item.price = 100000000
+        @item.price = 100_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は¥9,999,999以下で入力してください。")
+        expect(@item.errors.full_messages).to include('Price は¥9,999,999以下で入力してください。')
       end
     end
   end

@@ -24,6 +24,3 @@ class ItemsController < ApplicationController
   end
 end
 
-# @items = [1, 2, 3]
-# @items = []
-# 配列の要素の数が0だったらダミーを表示させる。
