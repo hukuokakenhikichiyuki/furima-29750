@@ -12,9 +12,8 @@ class Item < ApplicationRecord
 
   validates :category_id, :product_condition_id, :shipping_fee_burden_id, :shipping_area_id, :estimated_shipping_date_id, numericality: { other_than: 1 }
 
-  validates :price, numericality: { with: /\A[0-9]+\z/, message: "は半角数字で入力してください。"}
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください。' }
 
-
-  validates :price, numericality: { greater_than_or_equal_to: 300, message: "は¥300以上で入力してください。"}
-  validates :price, numericality: { less_than_or_equal_to: 9999999, message: "は¥9,999,999以下で入力してください。"}
+  validates :price, numericality: { greater_than_or_equal_to: 300, message: 'は¥300以上で入力してください。' }
+  validates :price, numericality: { less_than_or_equal_to: 9_999_999, message: 'は¥9,999,999以下で入力してください。' }
 end
