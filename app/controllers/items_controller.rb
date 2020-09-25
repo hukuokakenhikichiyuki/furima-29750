@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
-  
+
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -27,6 +27,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item = Item.destroy(params[:id])
+    redirect_to root_path
   end
 
   private
