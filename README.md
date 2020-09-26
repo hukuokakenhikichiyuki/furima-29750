@@ -19,7 +19,7 @@
 - has_many :items
 - has_many :purchase_details
 
-## buyers テーブル
+## orders テーブル
 
 | Column              | Type     | Options                        |
 | --------------------| -------  | ------------------------------ |
@@ -64,5 +64,5 @@
 ### Association
 
 - belongs_to :user
-- has_one :buyer
+- has_one :orders
 - belongs_to :item
