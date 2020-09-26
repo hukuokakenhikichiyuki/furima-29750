@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchase_details
+- has_many :purchase
 
 ## orders テーブル
 
@@ -29,11 +29,11 @@
 | address             | string   | null: false                    |
 | building-name       | string   |                                |
 | phone-number        | string   | null: false                    |
-| purchase-details_id | integer  | null: false, foreign_key: true |
+| purchase_id         | integer  | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase_detail
+- belongs_to :purchase
 
 ## items テーブル
 
