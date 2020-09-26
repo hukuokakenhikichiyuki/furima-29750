@@ -7,8 +7,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :address,                    null: false
       t.string :building_name
       t.string :phone_number,               null: false
-      t.integer :price,                     null: false
-      t.references :purchase_detail_id,     null: false
+      t.integer :purchase_id,               null: false
       t.timestamps
     end
   end
