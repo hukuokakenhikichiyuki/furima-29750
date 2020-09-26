@@ -19,13 +19,12 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:price, :token)
+    params.permit(:token)
   end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SERECT_KEY"]
     Payjp::Charge.create(
-      amount: order_params[:price],
       card: order_params[:token],
       currency:'jpy'
     )
