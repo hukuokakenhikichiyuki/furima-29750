@@ -19,5 +19,3 @@ class UserPurchase
     Order.create(postcode: postcode, shipping_area_id: shipping_area_id, cities: cities, address: address, building_name: building_name, phone_number: phone_number, purchase_id: purchase.id)
   end
 end
-
-#/\A[0-9]{3}[0-9]{4}[0-9]{4}\z/
