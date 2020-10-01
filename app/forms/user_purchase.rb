@@ -4,7 +4,6 @@ class UserPurchase
   attr_accessor :token, :postcode, :shipping_area_id, :cities, :address, :building_name, :phone_number, :user_id, :item_id
 
   with_options presence: true do
-    validates :token, :postcode, :cities, :address, :phone_number, presence: true
 
     validates :postcode, format: {with: /\A\d{3}[-]\d{4}\z/, message: "Input correctly"}
 
