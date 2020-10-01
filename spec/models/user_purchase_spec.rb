@@ -28,12 +28,12 @@ RSpec.describe UserPurchase, type: :model do
       it '郵便番号が半角のハイフンを含んだ形式でないと保存できないこと' do
         @user_purchase.postcode = 1234567
         @user_purchase.valid?
-        expect(@user_purchase.errors.full_messages).to include("Postcode Postcode Input correctly")
+        expect(@user_purchase.errors.full_messages).to include("Postcode Input correctly")
       end
       it '都道府県の情報のidが１だと保存できないこと' do
         @user_purchase.shipping_area_id = 1
         @user_purchase.valid?
-        expect(@user_purchase.errors.full_messages).to include('Shipping area Shipping area must be other than 1')
+        expect(@user_purchase.errors.full_messages).to include('Shipping area must be other than 1')
       end
       it '市町村が空だと保存できないこと' do
         @user_purchase.cities = nil
@@ -54,6 +54,11 @@ RSpec.describe UserPurchase, type: :model do
         @user_purchase.phone_number = '12345678900000'
         @user_purchase.valid?
         expect(@user_purchase.errors.full_messages).to include("Phone number 電話番号は11桁以内で登録してください")
+      end
+      it '電話番号にハイフンがあれば保存できない' do
+        @user_purchase.phone_number = '12-32-1'
+        @user_purchase.valid?
+        expect(@user_purchase.errors.full_messages).to include("Phone number ハイフンは不要です")
       end
     end
   end

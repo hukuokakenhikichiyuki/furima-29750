@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :user_purchase do
-    # association :user
-    # association :item
     token              { 'あ' }
     postcode           { '123-1234' }
     shipping_area_id   {2}
