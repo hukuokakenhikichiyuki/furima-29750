@@ -4,7 +4,9 @@ class OrdersController < ApplicationController
 
   def index
     if @item.user_id == current_user.id
+      if @item.purchase
       redirect_to root_path
+      end
     end
     @user_purchase = UserPurchase.new
   end
@@ -36,6 +38,6 @@ class OrdersController < ApplicationController
   end
 
   def set_order
-    @item = Item.find(params[:item_id]
+    @item = Item.find(params[:item_id])
   end
 end
