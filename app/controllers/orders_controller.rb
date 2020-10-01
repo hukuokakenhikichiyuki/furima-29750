@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_order, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     if @item.user_id == current_user.id
       redirect_to root_path
     end
@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @user_purchase = UserPurchase.new(user_purchase_params)
     if @user_purchase.valid?
       pay_item
@@ -34,5 +33,9 @@ class OrdersController < ApplicationController
       card: user_purchase_params[:token],
       currency:'jpy'
     )
+  end
+
+  def set_order
+    @item = Item.find(params[:item_id]
   end
 end
