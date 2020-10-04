@@ -11,14 +11,11 @@ class OrdersController < ApplicationController
 
   def create
     @user_purchase = UserPurchase.new(user_purchase_params)
-    pp @user_purchase
     if @user_purchase.valid?
-      puts "xxxxxxxxxxxxxxxxxxxxxxxx"
       pay_item
       @user_purchase.save
       redirect_to root_path
     else
-      puts "yyyyyyyyyyyyyyyyyyyyyyyyyy"
       render :index
     end
   end
@@ -31,7 +28,6 @@ class OrdersController < ApplicationController
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    puts ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
       card: user_purchase_params[:token],
